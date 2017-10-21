@@ -1,0 +1,14 @@
+﻿@model IEnumerable<GreyApplication.Models.Blank>
+
+@{
+    ViewBag.Title = "Blanks";
+}
+
+<h2>Available blanks</h2>
+
+@foreach (var item in Model)
+{
+    <div class="blank">
+        <h4>@Html.ActionLink(item.Title, "Detail", new { Id = item.Id })</h4>
+    </div>
+}

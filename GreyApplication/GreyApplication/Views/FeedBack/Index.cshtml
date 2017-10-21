@@ -1,0 +1,21 @@
+﻿@using GreyApplication.Models
+@model IEnumerable<GreyApplication.Models.Feedback>
+
+@{
+    ViewBag.Title = "Feedbacks";
+}
+
+<h2>Feedbacks</h2>
+
+    @foreach (var item in Model) {
+        <div class="feedback">
+            @Html.DisplayFor(modelItem => item.PublicationDate)<br/>
+            <strong>@Html.DisplayFor(modelItem => item.Author.Name):</strong>
+            @Html.DisplayFor(modelItem => item.Text)
+        </div>
+    }
+
+<div class="container">
+    <h3> Add your feedback: </h3>
+    @Html.Partial("PartialAdd", new Feedback() { AuthorId = 1, PublicationDate = DateTime.UtcNow })
+</div>

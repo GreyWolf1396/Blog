@@ -1,0 +1,19 @@
+﻿@model GreyApplication.Models.Article
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+
+<h4>@Html.DisplayFor(x => x.Title)</h4>
+<span>@Html.DisplayNameFor(x => x.Author):
+    <strong>@Html.DisplayFor(x => x.Author.Name)</strong>
+    <strong>@Html.DisplayFor(x => x.PublicationDate)</strong>
+</span>
+<br/>
+<p>
+    @Html.DisplayFor(x=>x.Text)
+</p>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

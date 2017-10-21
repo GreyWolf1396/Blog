@@ -1,0 +1,44 @@
+﻿@using GreyApplication.Models
+@model IEnumerable<GreyApplication.Models.Question>
+@{
+    ViewBag.Title = ViewBag.BlankTitle;
+}
+<script src="~/Scripts/BlankScripts.js"></script>
+@using GreyApplication.Helpers
+<h2>@ViewBag.BlankTitle</h2>
+
+@using (Html.BeginForm("Detail", "Blanks", FormMethod.Post))
+{
+    <input type="hidden" name="blankId" value=@ViewBag.BlankId />
+    foreach (var item in Model)
+    {
+        <hr/>
+        @Html.DisplayFor(q => item.Number)
+        <span>.</span>
+        @Html.DisplayFor(q => item.Text)
+
+        switch (item.QuestionType)
+        {
+            case QuestionType.Text:
+                <input type="text" name="@item.Number" />
+                break;
+            case QuestionType.RadioButton:
+                @Html.CreateRBList(item.Variants)
+                break;
+            case QuestionType.SelectOne:
+                @Html.CreateComboBoxList(item.Variants,item.Number)
+                break;
+            case QuestionType.SelectMultiple:
+                @Html.CreateCheckBoxList(item.Variants)
+                break;
+            default:
+                foreach (var variant in item.Variants)
+                {
+                    @Html.DisplayFor(z=>variant.Text)
+                }
+                break;
+        }
+        <hr/>
+    }
+    <input type="submit" class="btn btn-default" value="Send"/>
+}

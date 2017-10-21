@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+<div class="row page-header" id="header">
+    <div class="col-md-1">
+        <img src="~/Content/images/logo.png" id = "logo" style="width: 5vw; height:5vw" onclick="location.href='@Url.Action("Index","Main")'" />
+    </div>
+    <div class=" col-md-11 modal-title">
+        <h2>Homework</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+        <div class="col-md-3">
+            <h3>Site Menu:</h3>
+            <h4>@Html.ActionLink("Main", "Index", "Main")</h4>
+            <h4>@Html.ActionLink("Feedbacks", "Index", "Feedback")</h4>
+            <h4>@Html.ActionLink("Blanks", "Index", "Blanks")</h4>
+            <h4>@Html.ActionLink("Passes", "Index", "Pass")</h4>
+        </div>
+    </div>
+    <div class="col-md-12 modal-footer">&copy; GreyWolf @DateTime.Now.Year - <a href="#header">Back to top</a>
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>

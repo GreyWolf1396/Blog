@@ -1,0 +1,10 @@
+﻿@model GreyApplication.Models.Feedback
+
+@using (Html.BeginForm("Index", "FeedBack", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.AuthorId, new { @value = 1})
+    @Html.HiddenFor(model => model.PublicationDate, new {@value = DateTime.UtcNow.ToLongDateString()})
+    @Html.LabelFor(model => model.Text)
+    @Html.EditorFor(model=>model.Text)
+    <input type="submit" value="Send" />
+}

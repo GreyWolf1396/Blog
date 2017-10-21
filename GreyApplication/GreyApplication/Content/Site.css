@@ -1,0 +1,47 @@
+﻿body {
+    padding: 0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 80%;
+}
+
+#header {
+    background-color: royalblue;
+    font-size: 20px;
+    margin-top: 0;
+    text-align: center;
+    color: azure;
+    width: 100vw;
+    user-select: none;
+    cursor: default;
+}
+
+.container {
+    background-color: lightgray;
+    color: black;
+    margin-top: 0;
+}
+#logo {
+    height: 5vw;
+    width: 5vw;
+    cursor: pointer;
+}
+
+
+.feedback, 
+.article,
+.blank
+.pass{
+    border-bottom: 1px solid darkgrey;
+    margin: 5px 0;
+}

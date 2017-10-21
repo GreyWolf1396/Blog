@@ -1,0 +1,17 @@
+﻿@model IEnumerable<GreyApplication.Models.Answer>
+
+@{
+    ViewBag.Title = "Passed: "+ViewBag.BlankTitle;
+}
+
+<h2>@ViewBag.BlankTitle</h2>
+
+@foreach (var item in Model) {
+    <div>
+        <hr/>
+        <strong>@Html.DisplayFor(z => item.QuestionText)</strong><br/>
+        @Html.DisplayFor(z => item.AnswerText)
+        <hr/>
+    </div>
+}
+@Html.ActionLink("Back to List","Index")

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<GreyApplication.Models.Article>
+
+@{
+    ViewBag.Title = "Articles";
+}
+
+<h2>Articles</h2>
+@foreach (var item in Model)
+{
+    <div class="article">
+        <h4>@Html.ActionLink(item.Title,"Detail",new{Id=item.Id})</h4>
+        <span>@Html.DisplayNameFor(x=>x.Author):
+            <strong>@Html.DisplayFor(x=>item.Author.Name)  @Html.DisplayFor(x => item.PublicationDate)</strong>
+        </span>
+        <p>@Html.DisplayFor(x=>item.Text).ToString().Substring(0,200) @Html.ActionLink("read more...","Detail",new{Id=item.Id})</p>
+    </div>
+}

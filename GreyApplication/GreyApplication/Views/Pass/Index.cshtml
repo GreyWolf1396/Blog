@@ -1,0 +1,13 @@
+﻿@model IEnumerable<GreyApplication.Models.Pass>
+
+@{
+    ViewBag.Title = "Passes";
+}
+
+<h2>All passes of blanks</h2>
+
+@foreach (var item in Model) {
+    <p><strong>@Html.DisplayFor(x=>item.Author.Name)</strong></p>
+    <h4>@Html.ActionLink(item.Title,"Detail",new{Id=item.Id})</h4>
+}
+
